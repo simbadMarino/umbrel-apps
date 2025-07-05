@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: btfs
+category: files
+name: BTFS
+version: "0.0.6"
+tagline: Decentralized file storage powered by BTFS
+description: >-
+   BTFS (BitTorrent File System) is a scalable and decentralized storage system.
+    This app runs a go-btfs v3.3.0 node, enabling users to store, retrieve, and share files
+    in a distributed peer-to-peer environment from their Umbrel device.
+releaseNotes: >-
+  Initial Umbrel release based on go-btfs v3.3.0.
+developer: simbadMarino
+website: https://github.com/simbadMarino
+repo: https://github.com/simbadMarino/umbrel-apps
+support: https://github.com/simbadMarino/umbrel-apps
+port: 5001
+icon: icon.png
+gallery:
+  - 1.jpg
+dependencies: []
+path: "" #http://localhost:5001/hostui/   #Root path
+defaultUsername: ""
+defaultPassword: ""
+submitter: simbadMarino
+submission: ""
