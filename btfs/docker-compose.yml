@@ -1,22 +1,19 @@
-version: "0.0.6"
+version: "0.0.28"
 
 services:
   app_proxy:
     environment:
       APP_HOST: btfs_server_1
-      APP_PORT: 5001
+      APP_PORT: 5001 #BTFS API port
 
   server:
-    image: simbadmarino/btfs-node:v3.3.0@sha256:5711bb798079dc759014201962db25dc32aec19ab6a3851d69124878ed5d4783
+    image: simbadmarino/btfs-node:v3.3.0@sha256:fd0e9720b3eb372e32553e05e837e6ab53e959cf32986c2042e9b541364e2b4f
     restart: on-failure
     stop_grace_period: 1m
-    #ports:
-    #  - "5001:5001"
     volumes:
       - ${APP_DATA_DIR}/data:/data
-    command: >
-      sh -c " btfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '[\"http://localhost:5001\",\"http://umbrel.local\"]' && btfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '[\"PUT\",\"GET\",\"POST\"]'"
+    #command: >
+    # btfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '[\"http://127.0.0.1:5001\",\"http://umbrel.local\"]' && btfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '[\"PUT\",\"GET\",\"POST\"]'"
     environment:
-      BTFS_PATH: "/data/btfs"
+      BTFS_PATH: "/data/.btfs"
       BTFS_LOGGING: ""
-      #PATH: "/usr/local/go/bin:${PATH}"
